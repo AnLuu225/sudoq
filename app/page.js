@@ -79,32 +79,32 @@ const Homepage = () => {
             </Button>
           </Grid>
           </Grid>
-
-            <Grid container spacing={2} marginTop={4}>
-            <Grid item xs={4}>
-            <Link href="/play" passHref>
-                <Button variant="contained" fullWidth>
-                Play Sudoku
-                </Button>
-            </Link>
-            </Grid>
-            <Grid item xs={4}>
-            <Link href="/create" passHref>
-                <Button variant="outlined" fullWidth>
-                Create Puzzle
-                </Button>
-            </Link>
-            </Grid>
-            <Grid item xs={4}>
-            <Link href="/about" passHref>
-                <Button variant="text" fullWidth>
-                About
-                </Button>
-            </Link>
-            </Grid>
-            </Grid>
         
       )}
+
+        <Grid container spacing={2} marginTop={4}>
+        <Grid item xs={4}>
+            <Link href="/play" passHref>
+            <Button variant="contained" fullWidth>
+                Play Sudoku
+            </Button>
+            </Link>
+        </Grid>
+        <Grid item xs={4}>
+            <Link href="/create" passHref>
+            <Button variant="outlined" fullWidth>
+                Create Puzzle
+            </Button>
+            </Link>
+        </Grid>
+        <Grid item xs={4}>
+            <Link href="/about" passHref>
+            <Button variant="text" fullWidth>
+                About
+            </Button>
+            </Link>
+        </Grid>
+        </Grid>
 
       <Snackbar open={openSnackbar} autoHideDuration={3000} onClose={() => setOpenSnackbar(false)}>
         <Alert onClose={() => setOpenSnackbar(false)} severity="error" sx={{ width: "100%" }}>
