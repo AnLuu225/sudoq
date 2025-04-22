@@ -90,21 +90,21 @@ const Homepage = () => {
 
         <Grid container spacing={2} marginTop={4}>
         <Grid item xs={4}>
-            <Link href=".\play\play_page" passHref>
+            <Link to="\play\play_page">
             <Button variant="contained" fullWidth>
                 Play Sudoku
             </Button>
             </Link>
         </Grid>
         <Grid item xs={4}>
-            <Link href=".\create\create_page" passHref>
+            <Link to="\create\create_page">
             <Button variant="contained" fullWidth>
                 Create Puzzle
             </Button>
             </Link>
         </Grid>
         <Grid item xs={4}>
-            <Link href=".\about\about_page" passHref>
+            <Link to="\about\about_page">
             <Button variant="contained" fullWidth>
                 About
             </Button>
