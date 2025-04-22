@@ -48,7 +48,7 @@ const Homepage = () => {
           <Typography variant="h6">Hello, {user.email}</Typography>
         </>
       ) : (
-        
+        <>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
@@ -69,6 +69,7 @@ const Homepage = () => {
               onChange={(e) => setPassword(e.target.value)} 
             />
           </Grid>
+          </Grid>
 
           <Grid container spacing={2} sx={{ marginTop: 2 }}>
           <Grid item xs={6}>
@@ -82,7 +83,7 @@ const Homepage = () => {
             </Button>
           </Grid>
           </Grid>
-          </Grid>
+          </>
         
       )}
 
