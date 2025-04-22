@@ -2,7 +2,7 @@
 // Homepage.js
 import React, { useState } from 'react';
 import { Button, Container, Typography, Grid, TextField, Snackbar, Alert } from '@mui/material';
-import Link from 'next/Link';
+import Link from 'next/link';
 
 const Homepage = () => {
   const [user, setUser] = useState(null); // Placeholder for user info (to be replaced by real authentication logic)
