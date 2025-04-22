@@ -1,4 +1,4 @@
-"use client";
+//"use client";
 // Homepage.js
 import React, { useState } from 'react';
 import { Button, Container, Typography, Grid, TextField, Snackbar, Alert } from '@mui/material';
@@ -10,7 +10,7 @@ const Homepage = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [loginError, setLoginError] = useState('');
 
-  if (typeof window === "undefined") return null;
+  //if (typeof window === "undefined") return null;
 
     const handleLogin = (email, password) => {
     // Simulate login logic (e.g., check credentials from Firebase)
