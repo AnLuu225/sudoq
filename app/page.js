@@ -1,9 +1,9 @@
 'use client';
 
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/log_auth/auth_context';
 import { useRouter } from 'next/navigation';
 import { signOut } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
+import { auth } from '@/log_auth/firebase';
 import {
   Container,
   Typography,
