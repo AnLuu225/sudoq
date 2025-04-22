@@ -39,18 +39,7 @@ const Homepage = () => {
         backgroundSize: "cover", 
         height: "100vh"
       }}>
-        <Box
-            sx={{
-                backgroundColor: "#fffafa",
-                backgroundSize: "cover",
-                height: "100vh",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-                textAlign: "center"
-            }}
-            >
+
     <Container sx={{ padding: 3 }}>
       <Typography variant="h4" color="black" align="center">Welcome to SudoQ!</Typography>
 
@@ -59,6 +48,7 @@ const Homepage = () => {
           <Typography variant="h6">Hello, {user.email}</Typography>
         </>
       ) : (
+        
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
@@ -79,6 +69,8 @@ const Homepage = () => {
               onChange={(e) => setPassword(e.target.value)} 
             />
           </Grid>
+
+          <Grid container spacing={2} sx={{ marginTop: 2 }}>
           <Grid item xs={6}>
             <Button variant="contained" color="primary" onClick={handleLogin}>
               Log In
@@ -88,6 +80,7 @@ const Homepage = () => {
             <Button variant="outlined" color="secondary" onClick={handleSignUp}>
               Sign Up
             </Button>
+          </Grid>
           </Grid>
           </Grid>
         
@@ -123,7 +116,7 @@ const Homepage = () => {
         </Alert>
       </Snackbar>
     </Container>
-    </Box>
+    
     </div>
   );
 };
