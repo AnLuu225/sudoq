@@ -40,7 +40,7 @@ const Homepage = () => {
         height: "100vh"
       }}>
     <Container sx={{ padding: 3 }}>
-      <Typography variant="h4" color="black" alignItems='center'>Welcome to SudoQ!</Typography>
+      <Typography variant="h4" color="black" align="center">Welcome to SudoQ!</Typography>
 
       {user ? (
         <>
