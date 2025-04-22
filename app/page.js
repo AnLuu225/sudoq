@@ -4,7 +4,6 @@ import { Button, Container, Typography, Grid, TextField, Snackbar, Alert } from 
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase"; 
 import Link from 'next/link';
-import { Box } from '@mui/material';
 
 const Homepage = () => {
   const [user, setUser] = useState(null);
@@ -91,21 +90,21 @@ const Homepage = () => {
 
         <Grid container spacing={2} marginTop={4}>
         <Grid item xs={4}>
-            <Link href="about/play_page" passHref>
+            <Link href="/play/play_page" passHref>
             <Button variant="contained" fullWidth>
                 Play Sudoku
             </Button>
             </Link>
         </Grid>
         <Grid item xs={4}>
-            <Link href="create/create_page" passHref>
+            <Link href="/create/create_page" passHref>
             <Button variant="contained" fullWidth>
                 Create Puzzle
             </Button>
             </Link>
         </Grid>
         <Grid item xs={4}>
-            <Link href="about/about_page" passHref>
+            <Link href="/about/about_page" passHref>
             <Button variant="contained" fullWidth>
                 About
             </Button>
