@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button, Container, Typography, Grid, TextField, Snackbar, Alert } from '@mui/material';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase"; // Path to your Firebase config
+import Link from 'next/link';
 
 const Homepage = () => {
   const [user, setUser] = useState(null); // State to store user data after authentication
@@ -77,7 +78,32 @@ const Homepage = () => {
               Sign Up
             </Button>
           </Grid>
-        </Grid>
+          </Grid>
+
+            <Grid container spacing={2} marginTop={4}>
+            <Grid item xs={4}>
+            <Link href="/play" passHref>
+                <Button variant="contained" fullWidth>
+                Play Sudoku
+                </Button>
+            </Link>
+            </Grid>
+            <Grid item xs={4}>
+            <Link href="/create" passHref>
+                <Button variant="outlined" fullWidth>
+                Create Puzzle
+                </Button>
+            </Link>
+            </Grid>
+            <Grid item xs={4}>
+            <Link href="/about" passHref>
+                <Button variant="text" fullWidth>
+                About
+                </Button>
+            </Link>
+            </Grid>
+            </Grid>
+        
       )}
 
       <Snackbar open={openSnackbar} autoHideDuration={3000} onClose={() => setOpenSnackbar(false)}>
