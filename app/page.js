@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Button, Container, Typography, Grid, TextField, Snackbar, Alert } from '@mui/material';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase"; // Path to your Firebase config
+import { auth } from "./firebase"; // Path to your Firebase config
 
 const Homepage = () => {
   const [user, setUser] = useState(null); // State to store user data after authentication
