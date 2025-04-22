@@ -2,17 +2,16 @@
 import React, { useState } from "react";
 import { Button, Container, Typography, Grid, TextField, Snackbar, Alert } from '@mui/material';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase"; // Path to your Firebase config
+import { auth } from "./firebase"; 
 import Link from 'next/link';
 
 const Homepage = () => {
-  const [user, setUser] = useState(null); // State to store user data after authentication
-  const [email, setEmail] = useState(""); // Email input
-  const [password, setPassword] = useState(""); // Password input
-  const [openSnackbar, setOpenSnackbar] = useState(false); // Snackbar visibility
-  const [loginError, setLoginError] = useState(""); // Login error message
+  const [user, setUser] = useState(null);
+  const [email, setEmail] = useState(""); 
+  const [password, setPassword] = useState(""); 
+  const [openSnackbar, setOpenSnackbar] = useState(false); 
+  const [loginError, setLoginError] = useState(""); 
 
-  // Handle Login
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -23,7 +22,6 @@ const Homepage = () => {
     }
   };
 
-  // Handle Sign-Up
   const handleSignUp = async () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
@@ -55,7 +53,7 @@ const Homepage = () => {
               variant="outlined"
               fullWidth
               value={email}
-              onChange={(e) => setEmail(e.target.value)} // Update email state
+              onChange={(e) => setEmail(e.target.value)} 
             />
           </Grid>
           <Grid item xs={12}>
@@ -65,7 +63,7 @@ const Homepage = () => {
               fullWidth
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)} // Update password state
+              onChange={(e) => setPassword(e.target.value)} 
             />
           </Grid>
           <Grid item xs={6}>
