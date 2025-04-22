@@ -34,6 +34,11 @@ const Homepage = () => {
   };
 
   return (
+    <div style={{
+        backgroundColor: "#fffafa", 
+        backgroundSize: "cover", 
+        height: "100vh"
+      }}>
     <Container sx={{ padding: 3 }}>
       <Typography variant="h4">Welcome to SudoQ!</Typography>
 
@@ -81,6 +86,7 @@ const Homepage = () => {
         </Alert>
       </Snackbar>
     </Container>
+    </div>
   );
 };
 
