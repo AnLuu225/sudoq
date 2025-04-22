@@ -1,26 +1,30 @@
 'use client';
 
+import { useState } from 'react';
 import {
-  Box,
-  Button,
   Container,
   TextField,
+  Button,
   Typography,
+  Box,
 } from '@mui/material';
-import { useState } from 'react';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { useAuth } from '@/context/AuthContext';
 
-export default function Create() {
+export default function CreatePuzzlePage() {
   const emptyGrid = Array(9)
     .fill(0)
     .map(() => Array(9).fill(0));
 
   const [puzzle, setPuzzle] = useState(emptyGrid);
+  const { user } = useAuth();
 
   const handleChange = (row, col, value) => {
-    const updated = [...puzzle];
+    const newPuzzle = [...puzzle];
     const val = parseInt(value) || 0;
-    updated[row][col] = val;
-    setPuzzle(updated);
+    newPuzzle[row][col] = val;
+    setPuzzle(newPuzzle);
   };
 
   const handleGenerate = async () => {
@@ -46,9 +50,25 @@ export default function Create() {
     document.body.removeChild(link);
   };
 
-  const handleShare = () => {
-    alert('🔗 Puzzle shared! (Simulated – add Firebase logic here)');
-    // Optional: Save puzzle to Firestore
+  const handleShare = async () => {
+    if (!user) {
+      alert('You must be logged in to share a puzzle!');
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, 'puzzles'), {
+        puzzle,
+        createdBy: user.email,
+        createdAt: serverTimestamp(),
+        title: `Puzzle by ${user.email}`,
+      });
+
+      alert('🎉 Puzzle shared to homepage!');
+    } catch (err) {
+      console.error(err);
+      alert('Failed to share puzzle.');
+    }
   };
 
   return (
@@ -92,7 +112,7 @@ export default function Create() {
           Generate
         </Button>
         <Button variant="outlined" onClick={handleClear}>
-          DIY (Clear Grid)
+          DIY (Clear)
         </Button>
         <Button variant="contained" onClick={handleShare}>
           Share
