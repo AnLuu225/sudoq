@@ -97,14 +97,14 @@ const Homepage = () => {
             </Link>
         </Grid>
         <Grid item xs={4}>
-            <Link to="\create\create_page">
+            <Link href="\create\create_page" passHref>
             <Button variant="contained" fullWidth>
                 Create Puzzle
             </Button>
             </Link>
         </Grid>
         <Grid item xs={4}>
-            <Link to="\about\about_page">
+            <Link href="\about\about_page" passHref>
             <Button variant="contained" fullWidth>
                 About
             </Button>
