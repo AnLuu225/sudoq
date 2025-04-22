@@ -1,4 +1,4 @@
-//"use client";
+"use client";
 // Homepage.js
 import React, { useState } from 'react';
 import { Button, Container, Typography, Grid, TextField, Snackbar, Alert } from '@mui/material';
