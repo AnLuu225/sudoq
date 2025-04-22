@@ -92,14 +92,14 @@ const Homepage = () => {
         </Grid>
         <Grid item xs={4}>
             <Link href="/create" passHref>
-            <Button variant="outlined" fullWidth>
+            <Button variant="contained" fullWidth>
                 Create Puzzle
             </Button>
             </Link>
         </Grid>
         <Grid item xs={4}>
             <Link href="/about" passHref>
-            <Button variant="text" fullWidth>
+            <Button variant="contained" fullWidth>
                 About
             </Button>
             </Link>
