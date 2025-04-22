@@ -90,7 +90,7 @@ const Homepage = () => {
 
         <Grid container spacing={2} marginTop={4}>
         <Grid item xs={4}>
-            <Link to="\play\play_page">
+            <Link href="\play\play_page" passHref>
             <Button variant="contained" fullWidth>
                 Play Sudoku
             </Button>
