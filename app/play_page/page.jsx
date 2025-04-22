@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Container, Typography, Button, Grid, CircularProgress } from "@mui/material";
-import { fetchSudokuPuzzle } from "@/api/sudoku";
+import { fetchSudokuPuzzle } from "../../api/sudoku";
 import { useRouter } from "next/navigation";
 
 const PlayPage = () => {
