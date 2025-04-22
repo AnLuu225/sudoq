@@ -1,5 +1,7 @@
 "use client";
 // Homepage.js
+import { useEffect, useState } from "react";
+if (typeof window === "undefined") return null;
 import React, { useState } from 'react';
 import { Button, Container, Typography, Grid, TextField, Snackbar, Alert } from '@mui/material';
 import Link from 'next/link';
