@@ -75,12 +75,12 @@ const Homepage = () => {
 
           <Grid container spacing={2} sx={{ marginTop: 2 }}>
           <Grid item xs={6}>
-            <Button variant="contained" color="red" align="center" onClick={handleLogin}>
+            <Button variant="contained" color="primary" align="center" onClick={handleLogin}>
               Log In
             </Button>
           </Grid>
           <Grid item xs={6}>
-            <Button variant="contained" color="red" align="center" onClick={handleSignUp}>
+            <Button variant="contained" color="primary" align="center" onClick={handleSignUp}>
               Sign Up
             </Button>
           </Grid>
@@ -91,21 +91,21 @@ const Homepage = () => {
 
         <Grid container spacing={2} marginTop={4}>
         <Grid item xs={4}>
-            <Link href="./play_page" passHref>
+            <Link href="/play_page" passHref>
             <Button variant="contained" fullWidth>
                 Play Sudoku
             </Button>
             </Link>
         </Grid>
         <Grid item xs={4}>
-            <Link href="./create_page" passHref>
+            <Link href="/create_page" passHref>
             <Button variant="contained" fullWidth>
                 Create Puzzle
             </Button>
             </Link>
         </Grid>
         <Grid item xs={4}>
-            <Link href="./about_page" passHref>
+            <Link href="/about_page" passHref>
             <Button variant="contained" fullWidth>
                 About
             </Button>
