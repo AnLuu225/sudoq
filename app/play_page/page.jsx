@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Container, Typography, Button, Grid, CircularProgress } from "@mui/material";
-import { fetchSudokuPuzzle } from "..../url/api/dosuku";
+//import { fetchSudokuPuzzle } from "sudoku-api.vercel.app/api/dosuku";
 import { useRouter } from "next/navigation";
 
 const PlayPage = () => {
@@ -11,7 +11,7 @@ const PlayPage = () => {
 
   const loadPuzzle = async () => {
     setLoading(true);
-    const data = await fetchSudokuPuzzle("medium");
+    const data = await fetch(sudoku-api.vercel.app/api/dosuku);
     if (data?.newboard?.grids[0]?.value) {
       setPuzzle(data.newboard.grids[0].value);
     }
