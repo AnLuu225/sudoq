@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Button, Container, Typography, Box } from '@mui/material';
-import SudokuGrid from '@/components/SudokuGrid';
+import { Button, Container, TextField, Typography, Box } from '@mui/material';
 import { useRouter } from 'next/navigation';
 
 export default function Play() {
@@ -36,9 +35,9 @@ export default function Play() {
   const handleSubmit = () => {
     const flat = puzzle.flat();
     if (flat.includes(0)) {
-      alert("Puzzle not complete!");
+      alert("🧐 - Puzzle not complete!");
     } else {
-      alert("🎉 Good job! Puzzle submitted!");
+      alert("🎉 - Good job!");
     }
   };
 
@@ -50,15 +49,50 @@ export default function Play() {
     <Container sx={{ mt: 5 }}>
       <Typography variant="h4" gutterBottom>Daily Sudoku Challenge</Typography>
       {puzzle.length > 0 && (
-        <>
-          <SudokuGrid puzzle={puzzle} onChange={handleChange} />
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(9, 40px)',
+            gridTemplateRows: 'repeat(9, 40px)',
+            gap: '4px',
+            justifyContent: 'center',
+            my: 4,
+          }}
+        >
+          {puzzle.map((row, rowIndex) =>
+            row.map((value, colIndex) => {
+              const isFixed = original[rowIndex][colIndex] !== 0;
+              return (
+                <TextField
+                  key={`${rowIndex}-${colIndex}`}
+                  value={value === 0 ? '' : value}
+                  inputProps={{
+                    maxLength: 1,
+                    style: { textAlign: 'center' },
+                  }}
+                  onChange={(e) =>
+                    handleChange(rowIndex, colIndex, e.target.value)
+                  }
+                  disabled={isFixed}
+                  variant="outlined"
+                  size="small"
+                  sx={{
+                    width: '40px',
+                    height: '40px',
+                    backgroundColor: isFixed ? '#eee' : 'white',
+                  }}
+                />
+              );
+            })
+          )}
+        </Box>
+      )}/
+
           <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
             <Button variant="contained" onClick={handleSubmit}>Submit</Button>
             <Button variant="outlined" onClick={handleRestart}>Restart</Button>
             <Button variant="text" onClick={handleExit}>Exit</Button>
           </Box>
-        </>
-      )}
     </Container>
   );
 }
