@@ -4,6 +4,7 @@ import { Button, Container, Typography, Grid, TextField, Snackbar, Alert } from 
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase"; 
 import Link from 'next/link';
+import { Box } from '@mui/material';
 
 const Homepage = () => {
   const [user, setUser] = useState(null);
@@ -38,6 +39,18 @@ const Homepage = () => {
         backgroundSize: "cover", 
         height: "100vh"
       }}>
+        <Box
+            sx={{
+                backgroundColor: "#fffafa",
+                backgroundSize: "cover",
+                height: "100vh",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                textAlign: "center"
+            }}
+            >
     <Container sx={{ padding: 3 }}>
       <Typography variant="h4" color="black" align="center">Welcome to SudoQ!</Typography>
 
@@ -110,6 +123,7 @@ const Homepage = () => {
         </Alert>
       </Snackbar>
     </Container>
+    </Box>
     </div>
   );
 };
