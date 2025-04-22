@@ -73,12 +73,12 @@ const Homepage = () => {
 
           <Grid container spacing={2} sx={{ marginTop: 2 }}>
           <Grid item xs={6}>
-            <Button variant="outlined" color="primary" onClick={handleLogin}>
+            <Button variant="outlined" color="red" onClick={handleLogin}>
               Log In
             </Button>
           </Grid>
           <Grid item xs={6}>
-            <Button variant="outlined" color="secondary" onClick={handleSignUp}>
+            <Button variant="outlined" color="blue" onClick={handleSignUp}>
               Sign Up
             </Button>
           </Grid>
