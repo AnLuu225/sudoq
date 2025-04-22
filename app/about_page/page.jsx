@@ -1,3 +1,4 @@
+"use client";
 // AboutPage.js
 import React, { useState } from 'react';
 import { Button, TextField, Container, Snackbar, Alert } from '@mui/material';

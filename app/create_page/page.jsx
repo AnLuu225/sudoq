@@ -1,3 +1,4 @@
+"use client";
 // CreatePage.js
 import React, { useState } from 'react';
 import { Button, Container, Grid, TextField } from '@mui/material';
