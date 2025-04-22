@@ -6,10 +6,13 @@ const CreatePage = () => {
   const [grid, setGrid] = useState(Array(9).fill(Array(9).fill(''))); // 9x9 Sudoku grid
 
   const handleChange = (row, col, value) => {
-    const newGrid = [...grid];
-    newGrid[row][col] = value;
-    setGrid(newGrid);
-  };
+    if (value === '' || /^[1-9]$/.test(value)) { // Allow only numbers 1-9 or empty input
+        const newGrid = grid.map((r, rowIndex) => 
+          rowIndex === row ? r.map((c, colIndex) => colIndex === col ? value : c) : r
+        );
+        setGrid(newGrid);
+      }
+    };
 
   const handleSubmit = () => {
     console.log('Puzzle created:', grid);
