@@ -2,7 +2,7 @@
 // Homepage.js
 import React, { useState } from 'react';
 import { Button, Container, Typography, Grid, TextField, Snackbar, Alert } from '@mui/material';
-import Link from 'react-router-dom';
+import Link from 'next/Link';
 
 const Homepage = () => {
   const [user, setUser] = useState(null); // Placeholder for user info (to be replaced by real authentication logic)
@@ -42,7 +42,7 @@ const Homepage = () => {
             </Button>
           </Grid>
           <Grid item xs={6}>
-            <Link to="/sign-up" >
+            <Link to="/sign-up" passHref>
               <Button variant="outlined" color="secondary">
                 Sign Up
               </Button>
