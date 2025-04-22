@@ -1,44 +1,68 @@
-// PlayPage.js
-import React, { useEffect, useState } from 'react';
-import { Button, Container, Grid, Typography } from '@mui/material';
-import { DosukuAPI } from 'sudoku-api';  // Assume you've set up the Dosuku API
+"use client";
+import React, { useEffect, useState } from "react";
+import { Container, Typography, Button, Grid, CircularProgress } from "@mui/material";
+import { fetchSudokuPuzzle } from "../api/sudoku";
+import { useRouter } from "next/navigation";
 
 const PlayPage = () => {
   const [puzzle, setPuzzle] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
-  const fetchPuzzle = (type) => {
+  const loadPuzzle = async () => {
     setLoading(true);
-    DosukuAPI.getPuzzle(type)
-      .then((response) => {
-        setPuzzle(response.data); // Assuming the API returns puzzle data
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error fetching puzzle:', error);
-        setLoading(false);
-      });
+    const data = await fetchSudokuPuzzle("medium");
+    if (data?.newboard?.grids[0]?.value) {
+      setPuzzle(data.newboard.grids[0].value);
+    }
+    setLoading(false);
   };
 
+  useEffect(() => {
+    loadPuzzle();
+  }, []);
+
   return (
-    <Container sx={{ padding: 3 }}>
-      <Grid container spacing={2} justifyContent="center">
-        <Grid item>
-          <Button variant="contained" onClick={() => fetchPuzzle('daily')} disabled={loading}>
-            Daily Challenge
-          </Button>
-        </Grid>
-        <Grid item>
-          <Button variant="contained" onClick={() => fetchPuzzle('random')} disabled={loading}>
-            Play Random Puzzle
-          </Button>
-        </Grid>
-      </Grid>
+    <Container sx={{ mt: 4 }}>
+      <Typography variant="h4" align="center" gutterBottom>
+        Daily Sudoku Challenge
+      </Typography>
 
       {loading ? (
-        <Typography variant="h6">Loading...</Typography>
+        <CircularProgress />
       ) : (
-        puzzle && <div>{/* Display the puzzle here */}</div>
+        <>
+          <Grid container spacing={0.5}>
+            {puzzle.map((row, rowIndex) => (
+              <Grid container item xs={12} key={rowIndex} justifyContent="center">
+                {row.map((cell, colIndex) => (
+                  <Grid item key={colIndex}>
+                    <input
+                      type="text"
+                      defaultValue={cell === 0 ? "" : cell}
+                      maxLength={1}
+                      style={{
+                        width: 40,
+                        height: 40,
+                        textAlign: "center",
+                        margin: "1px",
+                        fontSize: "1.2em",
+                        border: "1px solid #ccc"
+                      }}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            ))}
+          </Grid>
+
+          <Grid container spacing={2} mt={2} justifyContent="center">
+            <Grid item><Button variant="outlined" onClick={loadPuzzle}>Restart</Button></Grid>
+            <Grid item><Button variant="outlined" onClick={() => router.push("/")}>Exit</Button></Grid>
+            <Grid item><Button variant="contained">Validate</Button></Grid>
+            <Grid item><Button variant="contained" color="success">Submit</Button></Grid>
+          </Grid>
+        </>
       )}
     </Container>
   );
