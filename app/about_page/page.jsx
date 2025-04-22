@@ -18,6 +18,7 @@ const AboutPage = () => {
       <TextField
         label="Your Feedback"
         variant="outlined"
+        colour="white"
         fullWidth
         multiline
         rows={4}

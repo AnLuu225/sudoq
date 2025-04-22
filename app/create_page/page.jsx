@@ -21,7 +21,7 @@ const CreatePage = () => {
   };
 
   return (
-    <Container sx={{ padding: 3 }}>
+    <Container sx={{ padding: 3, backgroundColor: 'white' }}>
       <Grid container spacing={2}>
         {grid.map((row, rowIndex) => (
           <Grid container item xs={12} spacing={2} key={rowIndex}>
